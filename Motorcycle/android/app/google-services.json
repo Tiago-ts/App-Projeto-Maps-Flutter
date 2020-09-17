@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "32369816339",
+    "firebase_url": "https://drive-b302e.firebaseio.com",
+    "project_id": "drive-b302e",
+    "storage_bucket": "drive-b302e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32369816339:android:0565aeae36da348d5a20e6",
+        "android_client_info": {
+          "package_name": "com.example.Motorcycle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32369816339-iil7leo3cqi13k4o716sddmun87lmjls.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDVI08pUfqgr4aglZx2flpX-vnshoX2nBg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32369816339-iil7leo3cqi13k4o716sddmun87lmjls.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
