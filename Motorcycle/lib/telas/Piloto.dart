@@ -6,6 +6,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'Home.dart';
+
 class Piloto extends StatefulWidget {
   @override
   _PilotoState createState() => _PilotoState();
@@ -24,7 +26,11 @@ class _PilotoState extends State<Piloto> {
     FirebaseAuth auth = FirebaseAuth.instance;
 
     await auth.signOut();
-    Navigator.pushReplacementNamed(context, "/");
+    Navigator.push(
+        context, MaterialPageRoute(
+        builder: (context) => Home()
+    )
+    );
 
   }
 

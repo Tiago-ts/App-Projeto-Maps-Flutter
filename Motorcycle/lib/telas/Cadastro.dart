@@ -244,6 +244,7 @@ class _CadastroState extends State<Cadastro> {
                     child: Text(
                       _mensagemErro,
                       style: TextStyle(color: Colors.red, fontSize: 20),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 )

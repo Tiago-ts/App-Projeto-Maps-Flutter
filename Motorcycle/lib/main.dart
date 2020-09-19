@@ -1,9 +1,8 @@
 import 'package:Motorcycle/telas/Home.dart';
 import 'package:flutter/material.dart';
-
-
 import 'Rotas.dart';
 import 'Splash.dart';
+import 'Welcome.dart';
 
 final ThemeData temaPadrao = ThemeData(
     primaryColor: Color(0xff000000),
@@ -13,6 +12,7 @@ final ThemeData temaPadrao = ThemeData(
 void main() => runApp(MaterialApp(
   title: "Motorcycle",
   home: Splash(),
+  //home: Welcome(),
   theme: temaPadrao,
   initialRoute: "/",
   onGenerateRoute: Rotas.gerarRotas,

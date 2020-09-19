@@ -2,7 +2,7 @@
 import 'package:Motorcycle/modal/Usuario.dart';
 import 'package:Motorcycle/util/StatusRequisicao.dart';
 import 'package:Motorcycle/util/UsuarioFirebase.dart';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -33,7 +33,7 @@ class _CorridaState extends State<Corrida> {
 
   //Controles para exibição na tela
   String _textoBotao = "Aceitar corrida";
-  Color _corBotao = Color(0xff1ebbd8);
+  Color _corBotao = Color(0xffffeb3b);
   Function _funcaoBotao;
   String _mensagemStatus = "";
 
@@ -182,7 +182,7 @@ class _CorridaState extends State<Corrida> {
 
     _alterarBotaoPrincipal(
         "Aceitar corrida",
-        Color(0xff1ebbd8),
+        Color(0xffffeb3b),
             () {
           _aceitarCorrida();
         });
@@ -215,7 +215,7 @@ class _CorridaState extends State<Corrida> {
     _mensagemStatus = "A caminho do passageiro";
     _alterarBotaoPrincipal(
         "Iniciar corrida",
-        Color(0xff1ebbd8),
+        Color(0xffffeb3b),
             (){
           _iniciarCorrida();
         }
@@ -308,26 +308,22 @@ class _CorridaState extends State<Corrida> {
 
     //Formatar valor viagem
 
-    /*
-
     var f = new NumberFormat("#,##0.00", "pt_BR");
     var valorViagemFormatado = f.format( valorViagem );
 
     _mensagemStatus = "Viagem finalizada";
+
     _alterarBotaoPrincipal(
         "Confirmar - R\$ ${valorViagemFormatado}",
-        Color(0xff1ebbd8),
+        Color(0xffffeb3b),
             (){
           _confirmarCorrida();
         }
     );
 
-    */
-
     _mensagemStatus = "Viagem finalizada";
-
     _alterarBotaoPrincipal(
-        "Confirmar - R\$ 2,00 ",
+        "Confirmar - R\$ ${valorViagemFormatado}",
         Color(0xff1ebbd8),
             (){
           _confirmarCorrida();
@@ -371,9 +367,9 @@ class _CorridaState extends State<Corrida> {
         .document( idPassageiro )
         .delete();
 
-    String idMotorista = _dadosRequisicao["piloto"]["idUsuario"];
+    String idPiloto = _dadosRequisicao["piloto"]["idUsuario"];
     db.collection("requisicao_ativa_piloto")
-        .document( idMotorista )
+        .document( idPiloto )
         .delete();
 
   }
@@ -383,7 +379,7 @@ class _CorridaState extends State<Corrida> {
     _mensagemStatus = "Em viagem";
     _alterarBotaoPrincipal(
         "Finalizar corrida",
-        Color(0xff1ebbd8),
+        Color(0xffffeb3b),
             (){
           _finalizarCorrida();
         }
@@ -585,7 +581,7 @@ class _CorridaState extends State<Corrida> {
                 child: RaisedButton(
                     child: Text(
                       _textoBotao,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     color: _corBotao,
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),

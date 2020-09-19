@@ -4,7 +4,7 @@ import 'package:Motorcycle/modal/Requisicao.dart';
 import 'package:Motorcycle/modal/Usuario.dart';
 import 'package:Motorcycle/util/StatusRequisicao.dart';
 import 'package:Motorcycle/util/UsuarioFirebase.dart';
-
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -13,6 +13,8 @@ import 'package:geolocator/geolocator.dart';
 import 'dart:async';
 import 'dart:io';
 
+import 'Home.dart';
+
 class Passageiro extends StatefulWidget {
   @override
   _PassageiroState createState() => _PassageiroState();
@@ -20,8 +22,9 @@ class Passageiro extends StatefulWidget {
 
 class _PassageiroState extends State<Passageiro> {
 
-  TextEditingController _controllerDestino =
-  TextEditingController(text: "R. Heitor Penteado, 800");
+  //TextEditingController _controllerDestino = TextEditingController();
+  TextEditingController _controllerDestino = TextEditingController
+    (text: "R. Heitor Penteado, 800");
 
   List<String> itensMenu = ["Configurações", "Deslogar"];
 
@@ -39,14 +42,18 @@ class _PassageiroState extends State<Passageiro> {
   //Controles para exibição na tela
   bool _exibirCaixaEnderecoDestino = true;
   String _textoBotao = "Chamar Moto táxi";
-  Color _corBotao = Color(0xff1ebbd8);
+  Color _corBotao = Color(0xffffeb3b);
   Function _funcaoBotao;
 
   _deslogarUsuario() async {
     FirebaseAuth auth = FirebaseAuth.instance;
 
     await auth.signOut();
-    Navigator.pushReplacementNamed(context, "/");
+    Navigator.push(
+        context, MaterialPageRoute(
+        builder: (context) => Home()
+    )
+    );
   }
 
   _escolhaMenuItem(String escolha) {
@@ -133,6 +140,7 @@ class _PassageiroState extends State<Passageiro> {
   }
 
   _chamarMoto() async {
+
     String enderecoDestino = _controllerDestino.text;
 
     if (enderecoDestino.isNotEmpty) {
@@ -165,6 +173,7 @@ class _PassageiroState extends State<Passageiro> {
                 content: Text(enderecoConfirmacao),
                 contentPadding: EdgeInsets.all(16),
                 actions: <Widget>[
+
                   FlatButton(
                     child: Text(
                       "Cancelar",
@@ -172,11 +181,13 @@ class _PassageiroState extends State<Passageiro> {
                     ),
                     onPressed: () => Navigator.pop(contex),
                   ),
+
                   FlatButton(
                     child: Text(
                       "Confirmar",
                       style: TextStyle(color: Colors.green),
                     ),
+
                     onPressed: () {
                       //salvar requisicao
                       _salvarRequisicao(destino);
@@ -250,7 +261,7 @@ class _PassageiroState extends State<Passageiro> {
 
     _exibirCaixaEnderecoDestino = true;
 
-    _alterarBotaoPrincipal("Chamar Moto táxi", Color(0xff1ebbd8), () {
+    _alterarBotaoPrincipal("Chamar Moto táxi", Color(0xffffeb3b), () {
       _chamarMoto();
     });
 
@@ -295,7 +306,7 @@ class _PassageiroState extends State<Passageiro> {
     _exibirCaixaEnderecoDestino = false;
 
     _alterarBotaoPrincipal(
-        "piloto a caminho",
+        "Piloto a caminho",
         Colors.grey,
             () {
 
@@ -421,20 +432,11 @@ class _PassageiroState extends State<Passageiro> {
     double valorViagem = distanciaKm * 8;
 
     //Formatar valor viagem
-    /*
-    // ignore: creation_with_non_type
     var f = new NumberFormat("#,##0.00", "pt_BR");
     var valorViagemFormatado = f.format( valorViagem );
 
     _alterarBotaoPrincipal(
         "Total - R\$ ${valorViagemFormatado}",
-        Colors.green,
-            (){}
-    );
-*/
-
-    _alterarBotaoPrincipal(
-        "Total - R\$ 2,00",
         Colors.green,
             (){}
     );
@@ -465,7 +467,7 @@ class _PassageiroState extends State<Passageiro> {
     _exibirCaixaEnderecoDestino = true;
     _alterarBotaoPrincipal(
         "Chamar Moto táxi",
-        Color(0xff1ebbd8), () {
+        Color(0xffffeb3b), () {
       _chamarMoto();
     });
 
@@ -753,7 +755,7 @@ class _PassageiroState extends State<Passageiro> {
                 child: RaisedButton(
                     child: Text(
                       _textoBotao,
-                      style: TextStyle(color: Colors.white, fontSize: 20),
+                      style: TextStyle(color: Colors.black, fontSize: 20),
                     ),
                     color: _corBotao,
                     padding: EdgeInsets.fromLTRB(32, 16, 32, 16),

@@ -12,7 +12,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  TextEditingController _controllerEmail = TextEditingController(text: "teste@gmail.com");
+  TextEditingController _controllerEmail = TextEditingController(text: "oi@gmail.com");
   TextEditingController _controllerSenha = TextEditingController(text: "1234567");
   String _mensagemErro = "";
   bool _carregando = false;
@@ -242,6 +242,7 @@ class _HomeState extends State<Home> {
                     child: Text(
                       _mensagemErro,
                       style: TextStyle(color: Colors.red, fontSize: 20),
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 )

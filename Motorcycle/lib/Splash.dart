@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:Motorcycle/telas/Home.dart';
 import 'package:flutter/material.dart';
 
+import 'Welcome.dart';
+
 class Splash extends StatefulWidget {
 
   @override
@@ -20,7 +22,7 @@ class _SplashState extends State<Splash> {
 
 
 
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Home() ));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => Welcome() ));
     });
   }
 
