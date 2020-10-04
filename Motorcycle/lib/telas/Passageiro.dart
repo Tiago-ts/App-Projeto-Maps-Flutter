@@ -22,9 +22,10 @@ class Passageiro extends StatefulWidget {
 
 class _PassageiroState extends State<Passageiro> {
 
-  //TextEditingController _controllerDestino = TextEditingController();
-  TextEditingController _controllerDestino = TextEditingController
-    (text: "R. Heitor Penteado, 800");
+  TextEditingController _controllerDestino = TextEditingController();
+
+ // TextEditingController _controllerDestino = TextEditingController
+ //  (text: "R. Heitor Penteado, 800");
 
   List<String> itensMenu = ["Configurações", "Deslogar"];
 
@@ -73,7 +74,7 @@ class _PassageiroState extends State<Passageiro> {
   _adicionarListenerLocalizacao() {
     var geolocator = Geolocator();
     var locationOptions =
-    LocationOptions(accuracy: LocationAccuracy.high, distanceFilter: 10);
+    LocationOptions(accuracy: LocationAccuracy.best, distanceFilter: 10);
 
     geolocator.getPositionStream(locationOptions).listen((Position position) {
 
@@ -100,7 +101,7 @@ class _PassageiroState extends State<Passageiro> {
 
   _recuperaUltimaLocalizacaoConhecida() async {
     Position position = await Geolocator()
-        .getLastKnownPosition(desiredAccuracy: LocationAccuracy.high);
+        .getLastKnownPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
 
     setState(() {
       if (position != null) {
@@ -644,7 +645,7 @@ class _PassageiroState extends State<Passageiro> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Painel passageiro"),
+        title: Text("Painel Passageiro"),
         actions: <Widget>[
           PopupMenuButton<String>(
             onSelected: _escolhaMenuItem,
@@ -663,6 +664,10 @@ class _PassageiroState extends State<Passageiro> {
         child: Stack(
           children: <Widget>[
             GoogleMap(
+
+              //Mapas na telaa
+
+             // mapType: MapType.satellite,
               mapType: MapType.normal,
               initialCameraPosition: _posicaoCamera,
               onMapCreated: _onMapCreated,

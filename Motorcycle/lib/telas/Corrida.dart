@@ -52,7 +52,7 @@ class _CorridaState extends State<Corrida> {
   _adicionarListenerLocalizacao() {
     var geolocator = Geolocator();
     var locationOptions =
-    LocationOptions(accuracy: LocationAccuracy.high, distanceFilter: 10);
+    LocationOptions(accuracy: LocationAccuracy.bestForNavigation, distanceFilter: 10);
 
     geolocator.getPositionStream(locationOptions).listen((Position position) {
 
@@ -85,7 +85,7 @@ class _CorridaState extends State<Corrida> {
 
   _recuperaUltimaLocalizacaoConhecida() async {
     Position position = await Geolocator()
-        .getLastKnownPosition(desiredAccuracy: LocationAccuracy.high);
+        .getLastKnownPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
 
     if (position != null) {
 
@@ -562,7 +562,11 @@ class _CorridaState extends State<Corrida> {
         child: Stack(
           children: <Widget>[
             GoogleMap(
+
+              //mapa piloto
+
               mapType: MapType.normal,
+              //mapType: MapType.satellite,
               initialCameraPosition: _posicaoCamera,
               onMapCreated: _onMapCreated,
               //myLocationEnabled: true,

@@ -14,6 +14,9 @@ class Cadastro extends StatefulWidget {
 
 class _CadastroState extends State<Cadastro> {
 
+  //TextEditingController _controllerNome = TextEditingController(text:"teste");
+  //TextEditingController _controllerEmail = TextEditingController(text:"teste@gmail.");
+  //TextEditingController _controllerSenha = TextEditingController(text:"1234567");
   TextEditingController _controllerNome = TextEditingController();
   TextEditingController _controllerEmail = TextEditingController();
   TextEditingController _controllerSenha = TextEditingController();
@@ -124,7 +127,16 @@ class _CadastroState extends State<Cadastro> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-
+                /*
+                Padding(
+                  padding: EdgeInsets.only(bottom: 32),
+                  child: Image.asset(
+                    "imagens/moto.png",
+                    width: 200,
+                    height: 150,
+                  ),
+                ),
+*/
                 Align(
                   alignment: Alignment.center,
                   child: Icon(Icons.motorcycle,

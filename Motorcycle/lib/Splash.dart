@@ -47,6 +47,15 @@ class _SplashState extends State<Splash> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
 
+              Padding(
+                padding: EdgeInsets.only(bottom: 32),
+                child: Image.asset(
+                  "imagens/moto.png",
+                  width: 200,
+                  height: 200,
+                ),
+              ),
+/*
               Align(
                 alignment: Alignment.center,
                 child: Icon(Icons.motorcycle,
@@ -54,7 +63,7 @@ class _SplashState extends State<Splash> {
                   color: Colors.yellow,
                 ),
               ),
-
+*/
               Align(
                 child: Text(
                   "Motorcycle",
@@ -66,6 +75,7 @@ class _SplashState extends State<Splash> {
                   ),
                 ),
               ),
+
             ],
           ),
         ),

@@ -122,7 +122,7 @@ class _PilotoState extends State<Piloto> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Painel piloto"),
+        title: Text("Painel Moto táxi"),
         actions: <Widget>[
           PopupMenuButton<String>(
             onSelected: _escolhaMenuItem,

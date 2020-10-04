@@ -30,7 +30,9 @@ dependencies:
   cupertino_icons: ^0.1.3
   firebase_core: ^0.4.0+8
   firebase_auth: ^0.14.0
+  #firebase_auth: ^0.16.0
   cloud_firestore: ^0.12.9
+  #cloud_firestore: ^0.13.7
   google_maps_flutter: ^0.5.20+1
   geolocator: ^5.1.1+1
   intl: ^0.15.8
@@ -66,6 +68,8 @@ flutter:
     - imagens/fundo3.jpg
     - imagens/fundo4.jpg
     - imagens/logo.png
+    - imagens/moto.png
+    - imagens/logo-atual.png
     - imagens/motorista.png
     - imagens/passageiro.png
     - imagens/destino.png

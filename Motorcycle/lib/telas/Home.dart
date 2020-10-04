@@ -12,8 +12,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  TextEditingController _controllerEmail = TextEditingController(text: "oi@gmail.com");
-  TextEditingController _controllerSenha = TextEditingController(text: "1234567");
+  TextEditingController _controllerEmail = TextEditingController();
+  TextEditingController _controllerSenha = TextEditingController();
+  //TextEditingController _controllerEmail = TextEditingController(text: "teste@gmail.com");
+  //TextEditingController _controllerSenha = TextEditingController(text: "1234567");
   String _mensagemErro = "";
   bool _carregando = false;
 
@@ -131,6 +133,15 @@ class _HomeState extends State<Home> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
 
+                Padding(
+                  padding: EdgeInsets.only(bottom: 32),
+                  child: Image.asset(
+                    "imagens/moto.png",
+                    width: 180,
+                    height: 180,
+                  ),
+                ),
+/*
                 Align(
                   alignment: Alignment.center,
                   child: Icon(Icons.motorcycle,
@@ -138,7 +149,7 @@ class _HomeState extends State<Home> {
                     color: Colors.yellow,
                   ),
                 ),
-
+*/
 
                 Align(
                   child: Text(
@@ -157,17 +168,17 @@ class _HomeState extends State<Home> {
                 ),
 
 
-                /*
+              /*
                 Padding(
                   padding: EdgeInsets.only(bottom: 32),
                   child: Image.asset(
-                    "imagens/logo.png",
+                    "imagens/logo-atual.png",
                     width: 200,
                     height: 200,
                   ),
                 ),
 
-                */
+              */
 
                 TextField(
                   controller: _controllerEmail,
